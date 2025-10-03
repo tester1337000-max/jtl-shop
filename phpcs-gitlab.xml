@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<ruleset name="JTLShop Standard" namespace="JTLShop\CS\Standard">
+	<description>A coding standard for JTL Shop</description>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/admin/templates/bootstrap/css/*</exclude-pattern>
+	<exclude-pattern>*/admin/templates/bootstrap/js/*</exclude-pattern>
+	<exclude-pattern>*/admin/opc/*</exclude-pattern>
+	<exclude-pattern>*/includes/config.JTL-Shop.ini.php</exclude-pattern>
+	<exclude-pattern>*/includes/libs/*</exclude-pattern>
+	<exclude-pattern>*/includes/modules/*</exclude-pattern>
+	<exclude-pattern>*/includes/plugins/*</exclude-pattern>
+	<exclude-pattern>*/plugins/*</exclude-pattern>
+	<exclude-pattern>*/templates/NOVA/js/*</exclude-pattern>
+	<exclude-pattern>*/templates/NOVA/themes/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<ini name="memory_limit" value="256M"/>
+
+	<rule ref="Generic.PHP.DeprecatedFunctions"/>
+
+	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+
+	<rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+		<exclude-pattern>*/includes/globalinclude.php</exclude-pattern>
+		<exclude-pattern>*/.phpstan.php</exclude-pattern>
+		<exclude-pattern>*/includes/cron_inc.php</exclude-pattern>
+		<exclude-pattern>*/includes/defines.php</exclude-pattern>
+		<exclude-pattern>*/admin/includes/admininclude.php</exclude-pattern>
+		<exclude-pattern>*/tests/bootstrap.php</exclude-pattern>
+	</rule>
+
+	<!--    <rule ref="Generic.Commenting.Todo"/>-->
+
+	<rule ref="Generic.Files.LineLength.MaxExceeded">
+		<message>Line contains %2$s chars, which is more than the limit of %1$s</message>
+	</rule>
+	<rule ref="Generic.Files.LineLength.TooLong">
+		<message>Line longer than %s characters; contains %s characters</message>
+	</rule>
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="120"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.Formatting.SpaceAfterCast">
+		<properties>
+			<property name="spacing" value="0"/>
+		</properties>
+	</rule>
+	<rule ref="Generic.Formatting.MultipleStatementAlignment">
+		<properties>
+			<property name="maxPadding" value="100"/>
+			<property name="alignAtEnd" value="false"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+		<properties>
+			<property name="forbiddenFunctions" type="array">
+				<element key="delete" value="unset"/>
+				<element key="sizeof" value="count"/>
+				<element key="print" value="echo"/>
+				<element key="create_function" value="null"/>
+			</property>
+			<property name="forbiddenFunctions" type="array" extend="true">
+				<element key="sizeof" value="count"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="Internal.NoCodeFound">
+		<severity>0</severity>
+	</rule>
+
+	<rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+		<exclude-pattern>*/includes/src/Shop.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/ShopBC.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/Helpers/Text.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/Helpers/Request.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/DB/NiceDB.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/Extensions/Upload/File.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/Cache/JTLCacheTrait.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/Update/DBMigrationHelper.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+		<exclude-pattern>*/includes/src/Smarty/JTLSmartyTemplateHints.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/Smarty/JTLSmartyTemplateClass.php</exclude-pattern>
+		<exclude-pattern>*/includes/src/ShopBC.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PSR12"/>
+
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
+		<properties>
+			<property name="ignoreNewlines" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.OperatorSpacing">
+		<properties>
+			<property name="ignoreNewlines" value="true"/>
+		</properties>
+	</rule>
+</ruleset>

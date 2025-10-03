@@ -2,5 +2,4 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/includes/admininclude.php';
-routeRedirect(JTL\Router\Route::IO);
+// removed in 5.4.0

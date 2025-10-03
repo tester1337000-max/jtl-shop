@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         colors="false"
+         bootstrap="tests/bootstrap.php"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.3/phpunit.xsd"
+         cacheDirectory=".phpunit.result.cache"
+         defaultTestSuite="unit">
+  <testsuites>
+    <testsuite name="unit">
+      <directory>tests/Unit</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory>tests/Integration</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <ini name="error_reporting" value="-16385"/>
+  </php>
+  <source>
+    <include>
+      <directory suffix=".php">includes/src</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">includes/src/Abstracts</directory>
+      <file>includes/src/Cache/ICachingMethod.php</file>
+      <!-- Abstract classes -->
+      <directory prefix="Abstract">includes/src</directory>
+      <directory suffix="Abstract.php">includes/src</directory>
+      <!-- Interfaces -->
+      <directory suffix="Interface.php">includes/src</directory>
+      <!-- Enums -->
+      <directory>includes/src/Settings/Option</directory>
+      <file>includes/src/Settings/Section.php</file>
+      <file>includes/src/Settings/Subsection.php</file>
+      <directory>includes/src/Shipping/Helper</directory>
+      <file>includes/src/RMA/Helper/RMAHistoryEvents.php</file>
+      <!-- Deprecated classes -->
+      <file>includes/src/Helpers/ShippingMethod.php</file>
+    </exclude>
+  </source>
+  <coverage includeUncoveredFiles="true"
+            pathCoverage="false"
+            ignoreDeprecatedCodeUnits="true"
+            disableCodeCoverageIgnore="false">
+  </coverage>
+</phpunit>

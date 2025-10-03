@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use JTL\Console\Application;
+use JTL\Router\Router;
+use JTL\Router\State;
+use JTL\Shop;
+use JTL\Shopsetting;
+
+if (PHP_SAPI !== 'cli') {
+    echo 'Error: Shop CLI should be invoked via the CLI version of PHP, not the ' . PHP_SAPI . ' SAPI' . PHP_EOL;
+    exit;
+}
+
+set_error_handler(static function(int $code, string $description, string $file, int $line = null) {
+    if ($code === E_ERROR) {
+        echo 'Error (' . $code . '): ' . $description . ' in [' . $file . ', line ' . $line . ']' . PHP_EOL;
+        exit;
+    }
+});
+
+const CLI_BATCHRUN  = true;
+const PFAD_INCLUDES = 'includes/';
+
+$db        = null;
+$cache     = null;
+$installed = false;
+if (file_exists(__DIR__ . '/' . PFAD_INCLUDES . 'config.JTL-Shop.ini.php')) {
+    require_once __DIR__ . '/' . PFAD_INCLUDES . 'config.JTL-Shop.ini.php';
+    $installed = defined('BLOWFISH_KEY');
+}
+if (!defined('PFAD_ROOT')) {
+    define('PFAD_ROOT', __DIR__ . '/');
+}
+
+require_once PFAD_ROOT . PFAD_INCLUDES . 'defines.php';
+require_once PFAD_ROOT . PFAD_INCLUDES . 'autoload.php';
+Shop::setLanguage(1, 'ger');
+if ($installed === true) {
+    $db    = Shop::Container()->getDB();
+    $cache = Shop::Container()->getCache();
+    $cache->setJtlCacheConfig($db->selectAll('teinstellungen', 'kEinstellungenSektion', \CONF_CACHING));
+    Shop::setRouter(
+        new Router(
+            $db,
+            $cache,
+            new State(),
+            Shop::Container()->getAlertService(),
+            Shopsetting::getInstance($db, $cache)->getAll()
+        )
+    );
+}
+$application = new Application($db, $cache);
+$application->initPluginCommands();
+$application->run();
