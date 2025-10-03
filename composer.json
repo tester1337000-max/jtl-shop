@@ -1,0 +1,168 @@
+{
+  "name": "jtl/shop",
+  "license": "proprietary",
+  "description": "Das Shopsystem von JTL-Software",
+  "type": "project",
+  "homepage": "https://www.jtl-software.de",
+  "require": {
+    "php-64bit": ">=8.2",
+    "ext-bcmath": "*",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-fileinfo": "*",
+    "ext-ftp": "*",
+    "ext-gd": "*",
+    "ext-iconv": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-libxml": "*",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "ext-simplexml": "*",
+    "ext-soap": "*",
+    "ext-xml": "*",
+    "ext-zip": "*",
+    "ext-zlib": "*",
+    "chamilo/pclzip": "^2.8",
+    "cocur/slugify": "^4.0",
+    "erusev/parsedown": "^2.0",
+    "ezyang/htmlpurifier": "^4.18",
+    "fakerphp/faker": "^1.23",
+    "gettext/gettext": "^5.5.4",
+    "gettext/translator": "^1.2",
+    "greew/oauth2-azure-provider": "^2.0",
+    "guzzlehttp/guzzle": "^7.8",
+    "ifsnop/mysqldump-php": "^2.1",
+    "illuminate/collections": "^12.1",
+    "illuminate/container": "^12.1",
+    "intervention/image": "^3.8",
+    "jaybizzle/crawler-detect": "^1.3",
+    "jdorn/sql-formatter": "^1.2",
+    "jtl/minify": "^4.0",
+    "jtlshop/phpquery": "^2.0",
+    "jtlshop/qrcodegenerator": "^3.0",
+    "jtlshop/scc": "^1.2",
+    "jtlshop/sccbs3": "1.2.*",
+    "jtlshop/semver": "^2.0",
+    "jtlshop/shop5-systemcheck": "5.6.*",
+    "jtlshop/smarty4": "1.0.*",
+    "jtlshop/xtea": "1.0.*",
+    "laminas/laminas-diactoros": "^3.3",
+    "laminas/laminas-httphandlerrunner": "^2.1",
+    "league/flysystem": "^3.1",
+    "league/flysystem-ftp": "^3.1",
+    "league/flysystem-sftp-v3": "^3.1",
+    "league/flysystem-ziparchive": "^3.1",
+    "league/fractal": "^0.20.1",
+    "league/oauth2-google": "^4.0",
+    "league/route": "^6.0",
+    "lstrojny/functional-php": "^1.20",
+    "php-debugbar/php-debugbar": "^2.1",
+    "mobiledetect/mobiledetectlib": "^4.8",
+    "monolog/monolog": "^3.7",
+    "myclabs/php-enum": "^1.7",
+    "nesbot/carbon": "^3.3",
+    "php81_bc/strftime": "^0.7.3",
+    "phpmailer/phpmailer": "^6.0",
+    "phpmyadmin/sql-parser": "^5.11",
+    "rakit/validation": "^1.4",
+    "scssphp/scssphp": "^2.0",
+    "sebastian/diff": "^6.0.2",
+    "smarty/smarty": "5.5.*",
+    "studio-42/elfinder": "^2.1",
+    "symfony/console": "^7.1",
+    "symfony/deprecation-contracts": "^3.0",
+    "symfony/finder": "^7.1",
+    "symfony/process": "^7.1",
+    "symfony/service-contracts": "^3.0",
+    "symfony/string": "^7.1",
+    "symfony/translation-contracts": "^3.0",
+    "symfony/var-dumper": "^7.1",
+    "wikimedia/less.php": "^5.1"
+  },
+  "require-dev": {
+    "doctrine/annotations": "^2.0",
+    "friendsofphp/php-cs-fixer": "^3.52",
+    "phpmd/phpmd": "@stable",
+    "phpunit/phpunit": "^11.3",
+    "roave/security-advisories": "dev-latest",
+    "squizlabs/php_codesniffer": "^3.7",
+    "zircote/swagger-php": "^5.0"
+  },
+  "replace": {
+    "symfony/polyfill-php80": "*",
+    "symfony/polyfill-php81": "*",
+    "symfony/polyfill-mbstring": "*"
+  },
+  "suggest": {
+    "ext-redis": "Better caching method",
+    "ext-exif": "Improves getting image meta data",
+    "ext-zend-opcache": "Improves performance"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/shop5-systemcheck.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/qrcodegenerator.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/sccbs3.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/scc.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/oauth2/client.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/phpquery.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/xtea.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/semver.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/minify.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/smarty4.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/functional.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/jtl-software/jtl-shop/tools/parsedown/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "JTL\\": ["src/"],
+      "Plugin\\": ["../plugins/"],
+      "Template\\": ["../templates/"]
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    },
+    "sort-packages": true
+  },
+  "autoload-dev": {
+    "psr-4": { "Tests\\": "../tests/" }
+  }
+}
