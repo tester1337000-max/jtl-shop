@@ -22,7 +22,7 @@
     "daterangepicker": "3.1",
     "downloadjs": "^1.4.7",
     "fontawesome-iconpicker": "^3.2.0",
-    "humanize-duration": "^3.31.0",
+    "humanize-duration": "^3.33.0",
     "jquery": "^3.7.1",
     "jquery-ui": "^1.13.2",
     "masonry-layout": "^4.2.2",
